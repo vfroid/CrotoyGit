@@ -2,11 +2,11 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: crotoy
+    database_name: base
     database_user: root
     database_password: null
     mailer_transport: smtp
-    mailer_host: mail.bluewin.ch
-    mailer_user: vincent.froidevaux
-    mailer_password: gknrv_lampion
-    secret: 2e7cfceaacee0cbf4e76e7d49165b6a40b494473
+    mailer_host: 
+    mailer_user: 
+    mailer_password: 
+    secret: 123456
