@@ -1,0 +1,63 @@
+vf_blog_accueil:
+    path:     /blog/accueil
+    defaults: { _controller: VFBlogBundle:Blog:accueil }
+
+vf_blog_menu:
+    path:     /blog/menu
+    defaults: { _controller: VFBlogBundle:Blog:menu }
+
+vf_blog_listearticles:
+    path:     /blog/listearticles
+    defaults: { _controller: VFBlogBundle:Blog:listearticles }
+
+vf_blog_derniers:
+    path:     /blog/derniers
+    defaults: { _controller: VFBlogBundle:Blog:derniers }
+
+vf_blog_tag:
+    path:     /blog/tag
+    defaults: { _controller: VFBlogBundle:Blog:tag }
+
+vf_blog_etat:
+    path:     /blog/etat
+    defaults: { _controller: VFBlogBundle:Blog:etat }
+
+vf_blog_statuer:
+    path:     /blog/statuer
+    defaults: { _controller: VFBlogBundle:Blog:statuer }
+
+vf_article_voir:
+    path:     /article/voir/{id}
+    defaults: { _controller: VFBlogBundle:Article:voir }
+
+vf_article_add:
+    path:     /article/add
+    defaults: { _controller: VFBlogBundle:Article:add }
+
+vf_article_edit:
+    path:     /article/edit/{id}
+    defaults: { _controller: VFBlogBundle:Article:edit }
+
+vf_article_delete:
+    path:     /article/delete/{id}
+    defaults: { _controller: VFBlogBundle:Article:delete }
+
+vf_commentaire_voir:
+    path:     /commentaire/voir/{id}
+    defaults: { _controller: VFBlogBundle:Commentaire:voir }
+
+vf_commentaire_add:
+    path:     /commentaire/add/{id}
+    defaults: { _controller: VFBlogBundle:Commentaire:add }
+
+vf_commentaire_edit:
+    path:     /commentaire/edit/{id}
+    defaults: { _controller: VFBlogBundle:Commentaire:edit }
+
+vf_commentaire_delete:
+    path:     /commentaire/delete/{id}
+    defaults: { _controller: VFBlogBundle:Commentaire:delete }
+
+vf_commentaire_lire:
+    path:     /commentaire/lire/{id}
+    defaults: { _controller: VFBlogBundle:Commentaire:lire }

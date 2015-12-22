@@ -1,0 +1,119 @@
+
+
+{% extends "VFBookingBundle::layoutBooking.html.twig" %}
+
+
+{% block booking%}
+
+<h2> Calendrier des réservations </h2>
+
+{# voir page 464 de PHP & MYSQL #}
+
+	{% spaceless %}
+		{# DEFINITION COULEUR #}
+			{% set couleur = '' %}
+		{% for i in 1..months %}
+			{% if i == 1 %}
+				{% set month = start %}
+			{% else %}
+				{% set month = (start | date) ~ " + "~(i-1)~"month" %}
+			{% endif %}
+
+			{% set days_current = month | date('t') %}
+			{% set first_day = "1." ~ (month | date('F Y')) %}
+			{% set last_day = days_current~"." ~ (month | date('F Y')) %}
+			{% set start_day_of_current = first_day | date("N") %}
+			{% set end_day_of_current = last_day | date("N") %}
+			
+
+
+							 
+			<table class="table table-bordered table-striped table-condensed">
+				<tr class="cf-booking-calendar-m">
+					<th colspan="7">{{ month | date("F Y") }}</th>
+				</tr>
+				<tr>
+					<th>Lun</th>
+					<th>Mar</th>
+					<th>Mer</th>
+					<th>Jeu</th>
+					<th>Ven</th>
+					<th>Sam</th>
+					<th>Dim</th>
+				</tr>
+				<tr>
+				{% for i in 1..days_current+start_day_of_current-1 %}
+					{% if loop.index < start_day_of_current %}
+						<td class="cf-booking-calendar-empty"></td>
+					{% else %}
+
+						{% set full_date = (loop.index - start_day_of_current + 1)~"."~month | date(" F Y") %}
+						{% set booked = 0 %}
+						{% set is_opener = 0 %}
+						{% set is_closer = 0 %}
+						{% set prenom = '' %}
+						{% set nom = '' %}
+						{% for booking in bookings %}
+							{% if full_date | date("U") >= booking.start | date("U") and full_date | date("U") <= booking.end | date("U") %}
+								{% set booked = 1 %}
+							{% endif %}
+							{% if full_date | date("d F Y") == booking.start | date("d F Y") %}
+								{% set is_opener = 1 %}
+								{# CAPTURE DU NOM ET PRENOM #}
+								{% set prenom =  booking.sejour.personne.prenom  %}
+								{% set nom =  booking.sejour.personne.nom  %}
+								{# AJUSTEMENT DES COULEURS #}
+									{% if ((prenom == 'Vincent') and (nom == 'Froidevaux')) or ((prenom == 'Françoise') and (nom == 'Froidevaux')) %}  {% set couleur = couleurs['Vincent'] %}  
+									{% elseif ((prenom == 'Romain') and (nom == 'Froidevaux')) %}  {% set couleur = couleurs['Romain'] %}
+									{% elseif ((prenom == 'Paul') and (nom == 'Froidevaux')) %}  {% set couleur = couleurs['Paul'] %}
+									{% elseif ((prenom == 'Marine') and (nom == 'Froidevaux')) %}  {% set couleur = couleurs['Marine'] %}
+									{% else %} {% set couleur = 'gray' %}
+									{% endif %}
+							{% endif %}
+							{% if full_date | date("d F Y") == booking.end | date("d F Y") %}
+								{% set is_closer = 1 %}
+							{% endif %}
+							
+							
+						{% endfor %}
+						
+						
+						
+						{% if booked == 1 %} 
+						  
+						
+						    {% if is_opener == 1 %} 
+								<td style="background-color:{{ couleur }}";>{{ loop.index-start_day_of_current+1 }} {{ prenom }}</td> 
+							{% else %}
+								<td style="background-color:{{ couleur }}";>{{ loop.index-start_day_of_current+1 }}</td> 
+							{% endif %}
+						{% else %}<td><em>{{ loop.index-start_day_of_current+1 }}</em></td>
+						{% endif %}
+						
+						{% if loop.index%7 == 0 and loop.index < days_current+start_day_of_current-1 %}
+							</tr>
+							<tr>
+						{% elseif loop.index == days_current+start_day_of_current - 1%}
+							 {% if end_day_of_current != 7 %}
+								 {% for j in 1..7-end_day_of_current %}
+									 <td class="cf-booking-calendar-empty"></td>
+								 {% endfor %}
+							 {% endif %}
+							</tr>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</table>
+		{% endfor %}
+	{% endspaceless %}
+	
+	 <div>
+		<a class="btn btn-info" href="{{ path('vf_reservation_recherche'
+		) }}">Retour</a> 
+	</div>
+
+{% endblock%}
+
+
+
+

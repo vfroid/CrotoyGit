@@ -1,0 +1,33 @@
+{# src/VF/CrotoyBundle/Resources/views/Voyager/sncf.html.twig #}
+
+
+
+
+{% block transports %}
+
+	<div> 
+	<table class="table table-bordered table-striped table-condensed">
+	            <caption>Moyens de transport</caption>
+					<tr>
+					<th>Compagnie</th>
+					</tr>
+ 
+					{% for c in compagnies %}
+						<tr class =" success ">
+						{% if c matches '%VELO%' %}
+							<tr class =" danger ">
+						{% elseif c matches '%Train%' %}
+							<tr class =" success ">
+						{% else %}
+							<tr class =" info ">
+						{% endif %}
+						<td><a href="{{ liens[c]  }} " target="_blank">{{ c }}</a></div>
+						</tr>
+					{% endfor %}
+					</table>
+	</div>
+{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block proprietaire %}{% endblock %}
+{% block crotoy %}{% endblock %}

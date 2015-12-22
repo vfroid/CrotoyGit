@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: crotoy
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: mail.bluewin.ch
+    mailer_user: vincent.froidevaux
+    mailer_password: gknrv_lampion
+    secret: 2e7cfceaacee0cbf4e76e7d49165b6a40b494473

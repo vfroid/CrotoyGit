@@ -1,0 +1,31 @@
+{% extends "VFCrotoyBundle::layoutHabiter.html.twig "%}
+
+
+{% block menu_user %}{% endblock %}
+
+
+
+
+{% block menu_reservation %}{% endblock %}
+{% block menu_personne %}{% endblock %}
+
+
+{% block principal %}
+
+	<div> 
+		<table class="table table-bordered table-striped table-condensed">
+					<caption>Gérance de la maison</caption>
+						<tr>
+						<th>Thèmes</th>
+						</tr>
+						
+						{% for l in lieux %}
+							<tr>
+							<td><a href="{{ liens[l]  }}" target="_blank">{{ l }}</a></td>
+							</tr>
+						{% endfor %}
+		</table>
+	</div>
+
+
+{% endblock %}

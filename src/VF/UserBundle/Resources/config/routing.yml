@@ -1,0 +1,10 @@
+vf_user_menu:
+    path:     /user/menu
+    defaults: { _controller: VFUserBundle:User:menu }
+
+    path:     /login
+    defaults: { _controller: VFUserBundle:User:login }
+
+    path:     /change-password
+    defaults: { _controller: VFUserBundle:User:changePassword }
+    

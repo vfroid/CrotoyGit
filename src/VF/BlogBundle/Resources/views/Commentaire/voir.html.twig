@@ -1,0 +1,51 @@
+{# /src/VF/BlogBundle/Ressources/views/Commentaire/voir.html.twig #}
+
+{% extends "VFBlogBundle::layoutBlog.html.twig" %}
+
+{% block body_blog %}
+ 
+<article role="commentaire">
+    <header>
+        <h1><a href="" title="">{{ commentaire.titre }}</a></h1>
+       <time datetime="" pubdate="pubdate">{{ commentaire.date | date("d.m.Y") }}</time>
+    </header>
+				
+    <div class="content">
+		{{ commentaire.texte }}
+	</div>
+				
+    <footer>{{ commentaire.auteur }}</footer>
+
+    <section>
+        <div role="sectionhead">Commentaires :</div>
+
+        <article>
+            <time datetime=""></time>
+            <div class="comment-content"></div>
+        </article>
+
+        <article>
+            <time datetime=""></time>
+            <div class="comment-content"></div>
+        </article>
+
+        <article>
+            <time datetime=""></time>
+            <div class="comment-content"></div>
+        </article>
+
+    </section>
+
+</br></br></br>
+<div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            <a class="btn btn-info" href="{{ path('vf_blog_accueil') }}">Retour</a> 
+			<a class="btn btn-success" href="{{ path('vf_commentaire_edit', {'id': commentaire.id }) }}">Modifier</a> 
+			<a class="btn btn-danger" href="{{ path('vf_commentaire_delete', {'id': commentaire.id }) }}">Supprimer</a> 
+		  </div>
+		
+      </nav>
+</div>
+</article>
+{% endblock %}

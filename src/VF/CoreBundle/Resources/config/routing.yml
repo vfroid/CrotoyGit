@@ -1,0 +1,3 @@
+vf_core_homepage:
+    path:     /
+    defaults: { _controller: VFCoreBundle:Default:index }

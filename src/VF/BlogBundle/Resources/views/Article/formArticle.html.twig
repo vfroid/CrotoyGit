@@ -1,0 +1,36 @@
+{# src/VF/BlogBundle/Resources/views/Article/formArticle.html.twig #}
+
+{% extends "VFBlogBundle::layoutBlog.html.twig" %}
+
+
+{% block body_blog %}
+
+ 
+<h4> {{ user.username}} va créer un article :</h4>
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-vertical'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+	
+
+	{{ form_row(form.titre) }}
+	{{ form_row(form.auteur) }}
+	{{ form_row(form.texte) }}
+	{{ form_row(form.categories) }}
+
+	
+	{{ form_row(form.tags, {'value':'mot;mot;...'}) }}
+	
+	<h4> Image :</h4>
+	{{ form_row(form.image.libelle, {'value':'libelle de l\'image'}) }}
+	
+	{{ form_widget(form.Sauver, {'attr': {'class': 'btn btn-primary'}}) }}
+  
+		{{ form_end(form) }}
+  
+
+</div>
+{% endblock %}
+

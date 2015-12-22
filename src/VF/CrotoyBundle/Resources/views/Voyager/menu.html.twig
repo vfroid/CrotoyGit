@@ -1,0 +1,13 @@
+{# src/VF/CrotoyBundle/Resources/views/Voyager/menu.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutVoyager.html.twig" %}
+
+
+
+{% block voyager %}  
+	{% block transports %}
+		{{ render(controller("VFCrotoyBundle:Voyager:transports")) }}  
+	{% endblock %}
+{% endblock %}
+
+

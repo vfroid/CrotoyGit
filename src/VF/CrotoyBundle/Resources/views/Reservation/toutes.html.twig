@@ -1,0 +1,37 @@
+{# src/VF/CrotoyBundle/Resources/views/Reservation/toutes.html.twig #}
+
+  {% block reservation %}  
+
+{% block toutes %}
+<section>
+	            <table class="table table-bordered table-striped table-condensed">
+	            <caption>Liste des réservations enregistrées</caption>
+					<tr>
+					<th>n°</th>
+					<th>Locataire</th>
+					<th>Début</th>
+					<th>Fin</th>
+					<th>Adultes</th>
+					<th>Jeunes</th>
+					</tr>
+ 
+					{% for r in toutes %}
+						<tr>
+						<td>{{ r.id }}</td>
+						<td>{{ r.personne.prenom  }} {{ r.personne.nom  }} </td>
+						<td>{{ r.debut | date("d.m.Y")  }} </td>
+						<td>{{ r.fin | date("d.m.Y") }}</td>
+						<td>{{ r.nadulte  }} </td>
+						<td>{{ r.njeunes }}</td>
+						</tr>
+					{% endfor %}
+					</table>
+		<div>
+		<a class="btn btn-info" href="{{ path('vf_crotoy_accueil'
+		) }}">Retour</a> 
+	</div>
+</section>
+    
+{% endblock %}
+
+{% endblock %}

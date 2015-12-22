@@ -1,0 +1,58 @@
+{# src/VF/CrotoyBundle/Resources/views/Personne/formPersonne.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutPersonne.html.twig" %}
+
+{% block recherche %}{% endblock %}
+
+{% block ajouter %}
+<section>
+<h3>Enregistrer une personne (futur locataire)</h3>
+
+ <div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+	
+    <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.datene, "Date de naissance", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.datene) }}
+
+      <div class="col-sm-4">
+        {# Génération de l'input. #}
+        {{ form_widget(form.datene, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    {{ form_row(form.genre) }}
+    {{ form_row(form.rue) }}
+    {{ form_row(form.numero) }}
+    {{ form_row(form.cp) }}
+    {{ form_row(form.ville) }}
+    {{ form_row(form.pays) }}
+    {{ form_row(form.tel1) }}
+    {{ form_row(form.tel2) }}
+    {{ form_row(form.courriel) }}
+	
+	
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Enregistrer, {'attr': {'class': 'btn btn-primary'}}) }}
+  
+
+
+  {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+  {{ form_rest(form) }}
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+</section>
+{% endblock %}

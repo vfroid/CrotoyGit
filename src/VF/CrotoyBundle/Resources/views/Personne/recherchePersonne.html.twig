@@ -1,0 +1,33 @@
+{# src/VF/CrotoyBundle/Resources/views/Personne/formRecherche.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutPersonne.html.twig" %}
+
+
+{% block recherche %}
+<p>Rechercher par ID</p>
+
+ <div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+	{{ form_label(form.cp,"ID de la personne")}}
+    {{ form_widget(form.cp, {'attr': {'class': 'form-control'}}) }}
+
+	
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Rechercher, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+
+{% endblock %}
+
+
+{% block locataires %}
+   {{ render(controller("VFCrotoyBundle:Personne:locataires")) }}
+{% endblock %}

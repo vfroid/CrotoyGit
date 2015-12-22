@@ -1,0 +1,24 @@
+{# src/VF/CrotoyBundle/Resources/views/layoutPersonne.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+
+{% block crotoy %} {% endblock %}     
+
+
+ {% block menu_personne %} 
+	{{ render(controller("VFCrotoyBundle:Personne:menu")) }}
+ {% endblock %}
+ 
+
+
+{% block personne %}  
+				{% block toutes %}{% endblock %} 
+			    {% block locataires %}{% endblock %} 
+				{% block ajouter %}{% endblock %}
+				{% block voir %}{% endblock %}   
+                {% block editer %}{% endblock %} 
+				{% block delete %}{% endblock %} 
+  
+{% endblock%}
+
+

@@ -1,0 +1,31 @@
+{# src/VF/CrotoyBundle/Resources/views/layoutProprietaire.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+      
+
+ {% block crotoy %} {% endblock %} 
+
+
+ {% block menu_proprietaire %} 
+	{% if is_granted('ROLE_PROPRIETAIRE') %}
+	  <p>Propriétaire</p>
+	<ul>
+		<li><a href="{{ path('vf_proprietaire_accueil') }}" target="_blank">Explications</a></li>
+        <li><a href="{{ path('vf_proprietaire_recherche') }}" target="_blank">Réserver un séjour pour un invité</a></li>
+      </ul>
+    {% endif %}
+ {% endblock %} 
+
+
+ 
+ 
+  {% block proprietaire %}  
+	                {% block locataires %}{% endblock %}
+					{% block toutes %}{% endblock %} 
+	                {% block ajouter %}{% endblock %} 
+					{% block voir %}{% endblock %}   
+					{% block editer %}{% endblock %} 
+					{% block delete %}{% endblock %} 
+
+  
+  {% endblock%}

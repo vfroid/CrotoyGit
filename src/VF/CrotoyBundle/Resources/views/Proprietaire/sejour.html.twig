@@ -1,0 +1,31 @@
+{# src/VF/CrotoyBundle/Resources/views/Proprietaire/recherche.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutProprietaire.html.twig" %}
+
+{% block toutes %}{% endblock %}
+
+{% block recherche %}
+<p>Rechercher un séjour par ID</p>
+
+ <div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+	{{ form_label(form.njeunes,"ID du séjour")}}
+    {{ form_widget(form.njeunes, {'attr': {'class': 'form-control'}}) }}
+
+	
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Enregistrer, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+
+{% endblock %}
+
+

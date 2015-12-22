@@ -1,0 +1,76 @@
+{# src/VF/CoreBundle/Resources/views/layoutCore.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+
+
+
+{% block principal %}
+
+
+<body role="document">
+
+<div id="wrapper">
+	
+    <header id="header">
+        <div class="row">
+			  <!-- <section>
+                <div class = "col-lg-2">
+                <img src="http://localhost/Crotoy/web/images/maison.JPG" alt="maison" width="100" height="80">
+	            <div>
+		      </section> -->
+			  <section>
+	            <div class = "col-lg-8 col-lg-offset-1">
+                    <h3>BLOG</h3>
+	            </div>
+			  </section>
+	        </div>
+    </header>
+	
+    <div id="sub-wrapper">
+        <aside id="sidebar" role="complementary">
+		
+		</aside>
+		
+        <div id="main" role="main">
+		{% block body_blog %}{% endblock %}
+		</div>
+		
+	</div>
+	
+    <footer id="footer" role="contentinfo">
+	</footer>	
+	
+</div>
+    
+</body>
+</html>
+
+{% endblock principal %}
+
+{% block menu_blog %}
+	  <p>Blog</p>
+		<ul>
+		 <li><a href="{{ path('vf_blog_accueil') }}">Accueil du blog</a></li>
+		 <li><a href="{{ path('vf_blog_listearticles') }}">Tous les articles</a></li>
+         <li><a href="{{ path('vf_article_add') }}">Ajouter un article</a></li>
+        </ul>	
+		<form action="{{ path('vf_blog_tag') }}" method="post" >
+			Articles selon le tag (mot-clef) :<br>
+			<input name="tag" type="text">
+			<input type="submit" value="Chercher">
+		</form>
+		
+	{% if is_granted('ROLE_ADMIN') %}
+		<form action="{{ path('vf_blog_etat') }}" method="post" >
+			<p>
+				<label for="etat">Articles selon leur statut</label><br />
+				<select name="etat" id="idetat">
+					<option value="Soumis" selected>Soumis</option>
+					<option value="Publie">Publie</option>
+					<option value="Refuse">Refuse</option>
+				</select>
+			</p>
+			<input type="submit" value="Chercher">
+		</form>
+	{% endif %}
+{% endblock %}

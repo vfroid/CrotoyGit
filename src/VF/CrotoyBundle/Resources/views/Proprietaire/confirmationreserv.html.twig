@@ -1,0 +1,43 @@
+{# src/VF/CrotoyBundle/Resources/views/Proprietaire/confirmationreserv.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutProprietaire.html.twig" %}
+
+  {% block crotoy %} {% endblock %}
+  
+ {% block editer %}
+   
+   {% block flash %}
+		{% for message in app.session.flashbag.get('notice') %}
+           <div class="alert alert-info">Message flash : {{ message }}</div>
+        {% endfor %}
+    {% endblock %}
+   
+    <h2>Confirmation des données du séjour</h2>
+	<table>
+      <tr>
+        <th>Locataire</th>
+		<th> {{ sejour.personne.prenom }} {{ sejour.personne.nom }} </th>
+      </tr>
+      <tr>
+        <th>Début du séjour</th>
+		<th>{{ sejour.debut | date("d.m.y") }}</th>
+      </tr>
+	  <tr>
+        <th>Fin du séjour</th>
+		<th>{{ sejour.fin | date("d.m.y") }}</th>
+      </tr>
+	  <tr>
+        <th>Nombre d'adultes</th>
+		<th>{{ sejour.nadulte }}</th>
+      </tr>
+	  <tr>
+        <th>Nombre de jeunes</th>
+		<th>{{ sejour.njeunes }}</th>
+      </tr>
+</table>
+
+	<div>
+		<a class="btn btn-info" href="{{ path('vf_reservation_recherche') }}">Retour</a> 
+	</div>
+   
+ {% endblock %}

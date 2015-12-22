@@ -1,0 +1,19 @@
+{# /src/VF/BlogBundle/Ressources/Blog/voir.html.twig #}
+
+{% extends "VFBlogBundle::layoutBlog.html.twig" %}
+
+{% block body_blog %}
+
+  <h4> {{ article.titre }}</h4>
+  <p>{{ article.date | date("d.m.Y") }} , par {{ article.auteur }}
+  <p>{{ article.texte }}</p>
+   </br></br></br>
+<div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            <a class="btn btn-info" href="{{ path('vf_blog_accueil') }}">Retour</a>
+		  </div>
+      </nav>
+</div>
+
+{% endblock %}

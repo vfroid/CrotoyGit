@@ -1,0 +1,27 @@
+{# src/VF/CrotoyBundle/Resources/views/Voyager/sncf.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutVoyager.html.twig" %}
+
+{% block voyager %}  
+	{% block visiter %}
+
+		<div> 
+		<table class="table table-bordered table-striped table-condensed">
+					<caption>Lieux de visite</caption>
+						<tr>
+						<th>Site</th>
+						</tr>
+	 
+						{% for l in lieux %}
+							<tr>
+							<td><a href="{{ liens[l]  }} " target="_blank">{{ l }}</a></td>
+							</tr>
+						{% endfor %}
+						</table>
+		</div>
+	{% endblock %}
+{% endblock %}
+
+{% block accueil %}{% endblock %}
+{% block proprietaire %}{% endblock %}
+{% block crotoy %}{% endblock %}

@@ -1,0 +1,27 @@
+{# src/VF/CrotoyBundle/Resources/views/Reservation/delete.html.twig #}
+{% extends "VFCrotoyBundle::layoutReservation.html.twig" %}
+
+{% block title %}
+  Supprimer une réservation
+{% endblock %}
+
+
+{% block delete %}
+
+  <h2>Supprimer une réservation </h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer la réservation ?
+  </p>
+
+  
+  {# On met l'id de la personne dans la route de l'action du formulaire #}
+  <form action="{{ path('vf_reservation_delete', { 'id': sejour.id }) }}" method="post">
+    
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+  
+{% endblock %}

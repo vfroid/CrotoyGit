@@ -1,0 +1,30 @@
+{# src/VF/CrotoyBundle/Resources/views/Crotoy/menu.html.twig #}
+
+
+
+{% block menu %}
+{% block recherche %}{% endblock %}
+  <h4>Menu</h4>
+     {% if is_granted('ROLE_RESERVANT') %}
+	  <ul>  
+			<li><a href="{{ path('vf_reservation_recherche') }}">Réservations</a>
+			<li><a href="{{ path('vf_personne_recherche') }}">Personnes</a>
+			<li><a href="{{ path('vf_blog_accueil') }}">Blog</a></li>
+			<li><a href="{{ path('vf_voyager_menu') }}">Voyager</a></li>
+			<li><a href="{{ path('vf_user_menu') }}">Mon compte</a></li>
+			{% if is_granted("ROLE_PROPRIETAIRE") %}<li><a href="{{ path('vf_proprietaire_menu') }}">Propriétaire</a></li>{% endif %}
+	  </ul>
+	  
+     {% endif %}
+	 
+	 
+	 {% block menu_proprietaire %} {% endblock %}
+	 {% block menu_user %} {% endblock %}
+	  
+	  
+{% endblock %}
+
+
+
+
+

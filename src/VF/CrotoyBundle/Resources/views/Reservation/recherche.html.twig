@@ -1,0 +1,35 @@
+{# src/VF/CrotoyBundle/Resources/views/Reservation/recherche.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutReservation.html.twig" %}
+
+{% block toutes %}  {# toutes ne marche pas, pourquoi? #}
+   {{ render(controller("VFCrotoyBundle:Reservation:toutes")) }}
+{% endblock %}
+
+
+
+{% block recherche %}
+<p>Rechercher un séjour par son n°</p>
+
+ <div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+	{{ form_label(form.njeunes,"n° du séjour")}}
+    {{ form_widget(form.njeunes, {'attr': {'class': 'form-control'}}) }}
+
+	
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Trouver, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+
+{% endblock %}
+
+

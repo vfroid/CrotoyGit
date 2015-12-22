@@ -1,0 +1,25 @@
+{# src/VF/CrotoyBundle/Resources/views/layoutReservation.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+      
+
+ {% block crotoy %} {% endblock %} 
+
+
+ {% block menu_reservation %}  {{ render(controller("VFCrotoyBundle:Reservation:menu")) }} {% endblock %} 
+
+
+ 
+ 
+  {% block reservation %}  
+	
+					{% block toutes %}{% endblock %} 
+    {% if is_granted('ROLE_RESERVANT') %} 	
+	                {% block ajouter %}{% endblock %} 
+	{% endif %}
+					{% block voir %}{% endblock %}   
+					{% block editer %}{% endblock %} 
+					{% block delete %}{% endblock %} 
+
+  
+  {% endblock%}

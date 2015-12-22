@@ -1,0 +1,38 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        VF\UserBundle\Entity\User: sha512
+    role_hierarchy:
+        ROLE_INVITE:    [ROLE_USER]
+        ROLE_RESERVANT:    [ROLE_INVITE]
+        ROLE_PROPRIETAIRE:    [ROLE_RESERVANT]
+        ROLE_ADMIN:    [ROLE_PROPRIETAIRE]
+        ROLE_SUPER_ADMIN:    [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        main:
+            id: fos_user.user_provider.username
+
+
+    firewalls: 
+        main:
+            pattern:        ^/
+            anonymous:      true
+            provider:       main
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path:       fos_user_security_logout
+                target:     /
+            remember_me:
+                lifetime: 31536000 # 365 jours en secondes
+                path:     /
+                domain:   ~
+                key:        %secret% # %secret% est un paramètre de parameters.yml
+

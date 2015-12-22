@@ -1,0 +1,56 @@
+{# src/VF/CrotoyBundle/Resources/views/Reservation/voir.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutReservation.html.twig" %}
+
+  {% block crotoy %} {% endblock %}
+  {% block flash %}
+		{% for message in app.session.flashbag.get('notice') %}
+           <div class="alert alert-info">Message flash : {{ message }}</div>
+        {% endfor %}
+    {% endblock %}
+	
+
+ {% block voir %}
+ <section>
+    <table class="table table-bordered table-striped table-condensed">
+	<caption>Données se trouvant dans la base de données</caption>
+      <tr>
+        <th>Nom et prénom</th>
+		<th> {{ r.personne.prenom }} {{ r.personne.nom }} </th>
+      </tr>
+      <tr>
+        <th>Début</th>
+		<th>{{ r.debut | date("d.m.Y") }}</th>
+      </tr>
+        <th>Fin</th>
+		<th>{{ r.fin | date("d.m.Y")}}</th>
+      </tr>
+	  <tr>
+	  <tr>
+        <th>Nombre d'adultes</th>
+		<th>{{ r.nadulte }}</th>
+      </tr>
+	  <tr>
+        <th>Nombres de jeunes</th>
+		<th>{{ r.njeunes }}</th>
+      </tr>
+    </table>
+<section>
+	
+	</br></br></br>
+	
+	<div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            <a class="btn btn-info" href="{{ path('vf_reservation_recherche', {'id': id }) }}">Retour</a> 
+			{% if (is_granted('ROLE_PROPRIETAIRE')) or (user.personne == r.personne) %}
+			<a class="btn btn-success" href="{{ path('vf_reservation_edit', {'id': id }) }}">Modifier</a> 
+			<a class="btn btn-danger" href="{{ path('vf_reservation_delete', {'id': id }) }}">Supprimer</a> 
+			{% endif %}
+		  </div>
+		
+      </nav>
+</div>
+
+ 
+ {% endblock %}

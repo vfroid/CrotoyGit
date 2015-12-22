@@ -1,0 +1,24 @@
+{# src/VF/UserBundle/Resources/views/layoutUser.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+      
+
+ {% block crotoy %} {% endblock %} 
+
+
+
+{% block menu_user %}
+	 <p>Mon profil</p>
+	  <ul>  
+			<li><a href="{{ path('fos_user_profile_show') }}">Profil</a>
+			<li><a href="{{ path('fos_user_profile_edit') }}">Modifier mon profil</a>
+			<li><a href="{{ path('fos_user_change_password') }}">Changer le mot de passe</a></li>
+	  </ul>
+
+{% endblock %}
+
+
+
+{% block principal %} 
+{% block fos_user_content %} {% endblock %} 
+ {% endblock %} 

@@ -1,0 +1,33 @@
+{# src/VF/BlogBundle/Resources/views/Article/delete.html.twig #}
+
+
+{% extends "VFBlogBundle::layoutBlog.html.twig" %}
+
+{% block body_blog %}
+
+  <h2>Supprimer un article </h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer {{ article.titre }}?
+  </p>
+
+  
+  {# On met l'id de la personne dans la route de l'action du formulaire #}
+  <form action="{{ path('vf_article_delete', { 'id': article.id }) }}" method="post">
+    
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+  </br></br>
+  <div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            <a class="btn btn-info" href="{{ path('vf_blog_accueil') }}">Retour</a> 
+		  </div>
+		
+      </nav>
+	</div>
+  
+{% endblock %}

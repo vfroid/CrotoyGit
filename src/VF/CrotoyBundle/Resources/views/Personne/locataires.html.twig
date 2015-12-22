@@ -1,0 +1,28 @@
+{# src/VF/CrotoyBundle/Resources/views/Personne/locataires.html.twig #}
+
+
+
+
+{% block locataires %}
+<section>
+	            <table class="table table-bordered table-striped table-condensed">
+	            <caption>Liste des personnes enregistrées</caption>
+					<tr>
+					<th>n°</th>
+					<th>Nom et prénom</th>
+					<th>Courriel</th>
+					</tr>
+ 
+					{% for p in toutes %}
+						<tr>
+						<td>{{ p.id }}</td>
+						<td>{{ p.prenom  }}  {{ p.nom  }}</td>
+						<td>{{ p.courriel }}</td>
+						</tr>
+					{% endfor %}
+					</table>
+</section>
+    
+	<div><a class="btn btn-info" href="{{ path('vf_crotoy_accueil') }}">Retour</a> </div>
+{% endblock %}
+

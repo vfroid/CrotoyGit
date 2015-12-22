@@ -1,0 +1,15 @@
+{# src/VF/CrotoyBundle/Resources/views/Crotoy/accueil.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+
+ {% block accueil %}
+   <div class = "row" >
+      <nav class = "col-lg-2">
+        {% block menu %}{% endblock %}
+      </nav >
+      <section class = "col-lg-10">
+          <h2>Bienvenue dans la maison du Crotoy !</h2>
+          <img src="http://localhost/Crotoy/images/maison.JPG" alt="maison" width="600" height="480">
+      </section >
+    </div >
+ {% endblock %}

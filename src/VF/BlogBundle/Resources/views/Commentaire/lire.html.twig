@@ -1,0 +1,41 @@
+{# /src/VF/BlogBundle/Ressources/Commentaire/voir.html.twig #}
+
+{% extends "VFBlogBundle::layoutBlog.html.twig" %}
+
+{% block body_blog %}
+ 
+<article role="article">
+    <div class="row">
+	  <div class="col-sm-6">
+		<header>
+			<h1><a href="" title="">{{ commentaire.titre }}</a></h1>
+		   <time datetime="" pubdate="pubdate">{{ commentaire.date | date("d.m.Y") }}</time>
+		</header>
+					
+		<div class="content">
+			{{ commentaire.texte }}
+		</div>
+					
+		<footer>{{ commentaire.auteur }}</footer>
+      </div>
+	  
+	  <div class="col-sm-5 offset-sm-1">
+		<section>
+			<div role="sectionhead"><h3>Commentaires :</h3></div>
+			<article>
+				<time datetime="">{{ commentaire.date | date("d.m.Y") }}, {{ commentaire.auteur }}</time>
+				<div class="comment-content">{{ commentaire.texte}}</div>
+			</article>
+		</section>
+	  </div>
+    </div>
+	
+	<nav>
+		  <div class="btn-group">
+			<a class="btn btn-success" href="{{ path('vf_article_voir', {'id': commentaire.article.id }) }}">Retour</a> 
+		  </div>
+		
+      </nav>
+
+</commentaire>
+{% endblock %}

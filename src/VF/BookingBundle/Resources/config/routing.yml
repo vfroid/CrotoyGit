@@ -1,0 +1,11 @@
+vf_booking_book:
+    path:     /booking/book
+    defaults: { _controller: VFBookingBundle:Booking:book}
+
+vf_booking_calendrier:
+    path:     /booking/calendrier
+    defaults: { _controller: VFBookingBundle:Booking:calendrier}
+
+vf_booking_capter:
+    path:     /booking/capter
+    defaults: { _controller: VFBookingBundle:Booking:capter}

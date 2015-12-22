@@ -1,0 +1,19 @@
+<?php
+
+namespace VF\CrotoyBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class CrotoyController extends Controller
+{
+    public function accueilAction()
+    {
+        return $this->render('VFCrotoyBundle:Crotoy:accueil.html.twig');
+    }
+
+    public function photosAction()
+    {
+        return $this->render('VFCrotoyBundle:Crotoy:photos.html.twig');
+    }
+
+}

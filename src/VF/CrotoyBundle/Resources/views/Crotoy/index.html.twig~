@@ -1,0 +1,17 @@
+{# src/VF/CrotoyBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutCrotoy.html.twig" %}
+
+ {% block accueil %}
+   <div class = "row" >
+      <nav class = "col-lg-2">
+        {% block menu %}{% endblock %}
+      </nav >
+      <section class = "col-lg-10">
+        {% block accueil %}
+          <h2>Bienvenue dans la maison du Crotoy !</h2>
+          <img src="http://localhost/Crotoy/images/spatule_soir.JPG" alt="spatule soir" width="600" height="480">
+        {% endblock %}
+      </section >
+    </div >
+ {% endblock %}

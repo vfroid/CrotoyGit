@@ -1,0 +1,67 @@
+{# src/VF/CrotoyBundle/Resources/views/Personne/voir.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutPersonne.html.twig" %}
+
+  {% block crotoy %} {% endblock %}
+  {% block flash %}
+		{% for message in app.session.flashbag.get('notice') %}
+           <div class="alert alert-info">Message flash : {{ message }}</div>
+        {% endfor %}
+    {% endblock %}
+	
+
+ {% block voir %}
+ <section>
+    <table class="table table-bordered table-striped table-condensed">
+	<caption>Données se trouvant dans la base de données</caption>
+      <tr>
+        <th>Nom et prénom</th>
+		<th> {{ locataire.prenom }} {{ locataire.nom }} </th>
+      </tr>
+      <tr>
+        <th>Adresse</th>
+		<th>{{ locataire.numero }} {{ locataire.rue }}</th>
+      </tr>
+        <th>Localité</th>
+		<th>{{ locataire.cp }}{{ locataire.ville }}</th>
+      </tr>
+	  <tr>
+	  <tr>
+        <th>Date de naissance</th>
+		<th>{{ locataire.datene | date("d.m.y") }}</th>
+      </tr>
+	  <tr>
+        <th>Pays</th>
+		<th>{{ locataire.pays }}</th>
+      </tr>
+	  <tr>
+        <th>Téléphone n°1</th>
+		<th>{{ locataire.tel1 }}</th>
+      </tr>
+	  <tr>
+        <th>Téléphone n°2</th>
+		<th>{{ locataire.tel2 }}</th>
+      </tr>
+	  <tr>
+        <th>Courriel</th>
+		<th>{{ locataire.courriel}}</th>
+      </tr>
+    </table>
+<section>
+	
+	</br></br></br>
+	
+	<div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            <a class="btn btn-info" href="{{ path('vf_personne_recherche', {'id': id }) }}">Retour</a> 
+			<a class="btn btn-success" href="{{ path('vf_personne_edit', {'id': id }) }}">Modifier</a> 
+			<a class="btn btn-danger" href="{{ path('vf_personne_delete', {'id': id }) }}">Supprimer</a> 
+			{% if is_granted('ROLE_PROPRIETAIRE') %}<a class="btn btn-warning" href="{{ path('vf_reservation_addinvite', {'id': id }) }}">Réserver un séjour pour cette personne</a>{% endif %}
+		  </div>
+		
+      </nav>
+</div>
+
+ 
+ {% endblock %}

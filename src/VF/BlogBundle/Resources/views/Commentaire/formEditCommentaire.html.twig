@@ -1,0 +1,42 @@
+{# src/VF/BlogBundle/Resources/views/Article/formArticle.html.twig #}
+
+{% extends "VFBlogBundle::layoutBlog.html.twig" %}
+
+
+{% block body_blog %}
+<p>Créer un article</p>
+
+ <div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-vertical'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+	{{ form_label(form.titre,"Titre")}}
+    {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+	
+	
+	{{ form_label(form.titre,"Texte")}}
+    {{ form_widget(form.texte, {'attr': {'class': 'form-control'}}) }}
+	
+	
+	
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Sauver, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+
+
+<div class="col-sm-8">
+      <nav>
+		  <div class="btn-group">
+            <a class="btn btn-info" href="{{ path('vf_blog_accueil') }}">Retour</a>
+		  </div>
+		
+      </nav>
+</div>
+{% endblock %}
+

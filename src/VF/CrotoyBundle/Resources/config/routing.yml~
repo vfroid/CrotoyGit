@@ -1,0 +1,24 @@
+vf_crotoy_accueil:
+    path:     /accueil
+    defaults: { _controller: VFCrotoyBundle:Crotoy:accueil }
+
+vf_crotoy_photos:
+    path:     /photos
+    defaults: { _controller: VFCrotoyBundle:Crotoy:photos }
+
+vf_crotoy_dates:
+    path:     /dates
+    defaults: { _controller: VFCrotoyBundle:Reservation:dates }
+
+vf_crotoy_residents:
+    path:     /residents
+    defaults: { _controller: VFCrotoyBundle:Reservation:residents }
+
+vf_crotoy_residents:
+    path:     /sejourtout
+    defaults: { _controller: VFCrotoyBundle:Reservation:sejourtout }
+
+vf_crotoy_personne:
+    path:     /personne/{id}
+    defaults: { _controller: VFCrotoyBundle:Rservation:personne }
+

@@ -1,0 +1,4 @@
+services:
+#    vf_core.example:
+#        class: VF\CoreBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

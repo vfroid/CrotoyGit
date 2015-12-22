@@ -1,0 +1,26 @@
+
+
+{% extends "VFBookingBundle::layoutBooking.html.twig" %}
+
+{% block calendrier%}
+
+<h2> Formulaire pour afficher le calendrier </h2>
+
+<form action='calendrier' method="post"/>
+	<p>
+       <label for="date">Début de l'affichage du calendrier :</label>
+       <input type="date"  value= {{ jour }}  name="date" id="date" />
+       
+       </br>
+       <label for="months">Nombre de mois à afficher</label>
+       <input type="number" value=15 name="mois" id="mois" />
+	   </br> </br>
+       <input type="submit" value="Afficher" />
+   </p>
+</form>
+
+ </br> </br> </br>
+	<div>
+		<a class="btn btn-info" href="{{ path('vf_crotoy_accueil') }}">Retour</a> 
+	</div>
+{% endblock%}

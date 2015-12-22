@@ -1,0 +1,18 @@
+{# src/VF/CrotoyBundle/Resources/views/Personne/menu.html.twig #}
+
+
+
+{% block menu_personne %}  
+
+	<p>Personnes</p>
+	  <ul>  
+			<li><a href="{{ path('vf_personne_recherche') }}">Toutes</a>
+			{% if is_granted('ROLE_RESERVANT') %}<li><a href="{{ path('vf_personne_add') }}">Enregistrer une personne</a>{% endif %}
+			<li><a href="{{ path('vf_personne_recherche') }}">Rechercher une personne</a></li>
+	  </ul>
+{% endblock %}
+
+
+
+
+

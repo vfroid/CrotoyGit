@@ -1,0 +1,23 @@
+{# src/VF/CrotoyBundle/Resources/views/layoutVoyager.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+    
+	{% block menu_voyager %}  
+
+	<p>Voyager</p>
+	  <ul>  
+			<li><a href="{{ path('vf_voyager_menu') }}">Transports</a>
+			<li><a href="{{ path('vf_voyager_visiter') }}">Visiter</a>
+	  </ul>
+{% endblock %}  
+
+
+   {% block voyager %}  
+      {% block transports %}{% endblock %}
+	  {% block visiter %}{% endblock %}
+   {% endblock%}
+   
+   
+   {% block accueil %}{% endblock %}
+	{% block proprietaire %}{% endblock %}
+	{% block crotoy %}{% endblock %}

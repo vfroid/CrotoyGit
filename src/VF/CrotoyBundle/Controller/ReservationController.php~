@@ -1,0 +1,95 @@
+<?php
+
+namespace VF\CrotoyBundle\Controller;
+
+
+use VF\CrotoyBundle\Entity\sejour;
+use VF\CrotoyBundle\Form\sejourType;
+use VF\CrotoyBundle\Form\sejourDatesType;
+use VF\CrotoyBundle\Form\sejourResidentsType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+class ReservationController extends Controller
+{
+    public function datesAction(Request $request)
+  {
+    $sejour = new sejour();     
+    $sejour->setNadulte(34);
+      
+    $form = $this->createForm(new sejourDatesType(), $sejour);
+
+  
+
+     if ($form->handleRequest($request)->isValid()) {
+      $request->getSession()->getFlashBag()->add('notice', 'Nombe de résidents bien enregistré.');
+ 
+     return $this->render('VFCrotoyBundle:Reservation:sejourtout.html.twig', array('form' => $form->createView()));
+    }
+ echo 'Echec de la validation';
+    // À ce stade :
+    // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+    // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+    return $this->render('VFCrotoyBundle:Reservation:choix.html.twig', array(
+      'form' => $form->createView(),
+    ));
+    }
+
+    public function residentsAction(Request $request)
+    {
+      $sejour = new sejour();
+      $form = $this->createForm(new sejourResidentsType(), $sejour);
+
+/*
+    if ($form->handleRequest($request)->isValid()) {
+      $em = $this->getDoctrine()->getManager();
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('notice', 'Nombe de résidents bien enregistré.');
+
+      return $this->redirect($this->generateUrl('vf_crotoy_sejourtout', array('sejour' => $sejour)));
+    }
+*/
+    // À ce stade :
+    // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+    // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+      return $this->render('VFCrotoyBundle:Reservation:choix.html.twig', array(
+        'form' => $form->createView(),
+      ));
+        
+    }
+
+
+    public function sejourtoutAction(Request $request)
+    {
+        $sejour = new sejour();
+        $form = $this->createForm(new sejourType(), $sejour);
+        echo 'Dates de séjour bien enregistrées.'. $sejour->getNadulte();
+
+    if ($form->handleRequest($request)->isValid()) {
+  /*    $em = $this->getDoctrine()->getManager();
+      $em->flush();
+*/
+      $request->getSession()->getFlashBag()->add('notice', 'Nombe de résidents bien enregistré.');
+     
+      return $this->redirect($this->generateUrl('vf_crotoy_accueil'));
+    }
+
+    // À ce stade :
+    // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+    // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+      return $this->render('VFCrotoyBundle:Reservation:sejourtout.html.twig', array(
+        'form' => $form->createView(),
+      ));
+    }
+
+
+    public function personneAction($id)
+    {
+        $repository = $this->getDoctrine()->getManager()->getRepository('VFCrotoyBundle:Personne');
+        $personne= $repository->find($id);
+        return $this->render('VFCrotoyBundle:Reservation:personne.html.twig', array('p' => $personne));
+    }
+
+
+}

@@ -1,0 +1,30 @@
+{# /src/VF/BlogBundleResources/views/Blog/listearticles.html.twig #}
+
+{% extends "VFBlogBundle::layoutBlog.html.twig "%}
+
+{% block principal %}
+
+<section>
+	            <table class="table table-bordered table-striped table-condensed">
+	            <caption>Article au statut:" {{ etat }} "</caption>
+					<tr>
+					<th>Date</th>
+					<th>Titre</th>
+					<th>Auteur</th>
+					</tr>
+ 
+					{% for a in liste %}
+						<tr>
+						<td>{{ a.date | date("d.m.Y") }}</td>
+						<td><a href="{{ path('vf_article_voir',{ 'id': a.id }) }}">{{ a.titre  }}</a></td>
+						<td>{{ a.auteur  }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+
+    
+	<div><a class="btn btn-info" href="{{ path('vf_blog_accueil') }}">Retour</a> </div>
+
+
+</section>
+{% endblock %}

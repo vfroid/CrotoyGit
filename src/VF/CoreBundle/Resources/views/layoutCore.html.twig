@@ -1,0 +1,134 @@
+{# src/VF/CoreBundle/Resources/views/layoutCore.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+  {% block header %}
+  <header class = "row">
+        <div id="header" class="jumbotron">
+            <div class="row">
+			  <section>
+                <div class = "col-lg-2">
+                <img src="web/images/roseau.JPG" alt="roseau" width="100" height="80">
+	            <div>
+		      </section>
+			  <section>
+	            <div class = "col-lg-8 col-lg-offset-1">
+                    <h1>La maison du Crotoy</h1>
+	            </div>
+			  </section>
+	        </div>
+            <div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    Connecté en tant que {{ app.user.username }}
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                {% else %}
+				    <ul>
+                        <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+					    <li><a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a></li>
+					</ul>
+                {% endif %}
+            </div>
+			
+	    </div>
+    </header>
+  {% endblock %}
+
+
+ 
+
+    {% block core %}
+     <div class="navbar navbar-default">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ path('vf_crotoy_accueil') }}">Accueil</a></li>
+		<li><a href="{{ path('vf_blog_accueil') }}">Blog</a></li>
+        <li><a href="{{ path('vf_crotoy_photos') }}">Photos</a></li>
+        <li><a href="{{ path('vf_reservation_recherche') }}">Réservation</a></li>
+		<li><a href="{{ path('vf_personne_recherche') }}">Personnes</a></li>
+		<li><a href="{{ path('vf_voyager_menu') }}">Voyager</a></li>
+		<li><a href="{{ path('vf_habiter_accueil') }}">Habiter</a></li>
+		<li><a href="{{ path('fos_user_profile_show') }}">Mon compte utilisateur</a></li>
+		 {% if is_granted("ROLE_PROPRIETAIRE") %}<li><a href="{{ path('vf_proprietaire_accueil') }}">Propriétaire</a></li>{% endif %}
+		 
+      </ul>
+	 </div>
+    {% endblock %}
+    
+	   {% block demarrage %}
+          <p><img src="web/images/baie_bleue.JPG" alt="baie_bleue" width="1100" height="500"></p>
+	{% endblock %}
+
+
+
+ {% block flash %}
+    {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('info') %}
+           <div class="alert alert-info">Message flash : {{ message }}</div>
+        {% endfor %}
+		{% for message in app.session.flashbag.get('notice') %}
+           <div class="alert alert-info">Message flash : {{ message }}</div>
+        {% endfor %}
+ {% endblock %}
+
+ 
+ {% block body %}
+	<div class="row">
+	<div class="col-sm-2">
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}  
+		{% block menu %} 
+			<aside>
+					{# {{ render(controller("VFCrotoyBundle:Crotoy:menu")) }}   #}
+					{% block menu_user %}{% endblock %}
+					{% block menu_proprietaire %}{% endblock %}
+					{% block menu_reservation %}{% endblock %}
+					{% block menu_personne %}{% endblock %}
+					{% block menu_blog %}{% endblock %}
+					{% block menu_voyager %}{% endblock %}
+					{% block menu_habiter %} {% endblock %}
+			</aside>
+		{% endblock %}
+	{% endif %}
+    </div>
+	
+	
+	
+	<div class="col-sm-9 col-sm-offset-1">
+	{% block principal %}
+		
+		 {% block recherche %}{% endblock %}
+		 {% block reservation %}{% endblock %}
+		 {% block personne %}{% endblock %}
+		 {% block proprietaire %}{% endblock %}
+		 {% block booking %}{% endblock %}
+		 {% block voyager %}{% endblock %}
+		 {% block habiter %}{% endblock %}
+		 
+		 {% block crotoy %}
+			 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+				 <section class = "col-lg-10">
+				   <h2>Bienvenue dans la maison du Crotoy !</h2>
+				<p><img src="web/images/vue_aerienne.JPG" alt="vue_aérienne_20.11" width="600" height="480"></p>
+				 </section>
+		   {% endif %}
+		 {% endblock %}
+	</div>
+	{% endblock %}      
+
+{% endblock %} 
+
+{% block footer %}
+ <footer class = "row">
+   <div class = "col-lg-12">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+        <p>A bientôt! </p>  
+    {% else %}
+    {% endif %}
+   </div>
+ </footer>
+
+{% endblock %} 
+
+{% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}
+

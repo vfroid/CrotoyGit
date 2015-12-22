@@ -1,0 +1,25 @@
+{# /src/VF/BlogBundle/Ressources/Blog/email.txt.twig #}
+
+<p>Sur le site de la maison du Crotoy, le blog contient un nouvel </p>
+
+<p>ARTICLE</p>
+
+{{ article.titre }}
+{{ article.texte }}
+{{ article.auteur }}
+{{ article.date | date("d-m-Y") }}
+
+
+{% for c in comm %}
+    <p>{{ c.auteur}} , le {{ c.date}} </p>
+	<h4>{{ c.titre }}</h4>
+	<p>{{ c.texte }} </p>
+	</br>
+{% endfor %}
+
+<p>Bonne lecture</p>
+
+
+Il sera visible, avec les commentaires associés, dès que Vincent aura autorisé sa publication (pour des raisons de responsabilité juridique du "webmaster").
+
+lien : http://localhost/Crotoy/web/app_dev.php/blog/accueil

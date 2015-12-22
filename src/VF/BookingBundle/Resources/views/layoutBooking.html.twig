@@ -1,0 +1,17 @@
+{# src/VF/CrotoyBundle/Resources/views/layoutBooking.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+      
+
+ {% block crotoy %} {% endblock %} 
+
+
+ {% block menu_reservation %}  {{ render(controller("VFCrotoyBundle:Reservation:menu")) }} {% endblock %} 
+
+
+ 
+ 
+  {% block booking %}  
+     {% block  calendrier %}{% endblock%}
+  
+  {% endblock%}

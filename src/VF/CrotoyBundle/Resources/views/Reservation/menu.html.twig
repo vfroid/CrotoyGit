@@ -1,0 +1,19 @@
+{# src/VF/CrotoyBundle/Resources/views/Reservation/menu.html.twig #}
+
+
+
+{% block menu_reservation %}  
+   <p>Réservations</p>
+	  <ul>
+        <li><a href="{{ path('vf_reservation_recherche') }}">Toutes</a></li>
+		{% if is_granted('ROLE_RESERVANT') %}<li><a href="{{ path('vf_reservation_add') }}">Réserver un séjour pour soi</a></li> {% endif %}
+		{% if is_granted('ROLE_PROPRIETAIRE') %}<li><a href="{{ path('vf_personne_recherche') }}">Réserver un séjour pour un invité</a></li>{% endif %}
+		<li><a href="{{ path('vf_reservation_recherche') }}">Rechercher une réservation</a></li>
+		<li><a href="{{ path('vf_booking_capter') }}">Calendrier</a></li>
+      </ul>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,36 @@
+{# src/VF/CrotoyBundle/Resources/views/Proprietaire/accueil.html.twig #}
+
+{% extends "VFCrotoyBundle::layoutProprietaire.html.twig" %}
+
+{% block proprietaire %}
+    <h2>Explications</h2>
+	<p>Ce site est consultable par des personnes ayant au moins un des rôles suivants:</p>
+	</br>
+	<ul>
+	  <li><strong>[ROLE_INVITE]</strong> : personne séjournant dans la maison sur invitation des seuls propriétaires</li>
+	  <li><strong>[ROLE_RESERVANT]</strong> : personne pouvant s'octroyer un séjour personnel (ex. Paul, Romain, Marine). Elle dispose aussi des droits du [ROLE_INVITE].</li>
+	  <li><strong>[ROLE_PROPRIETAIRE]</strong> : peut octroyer des séjours à des invités et dispose des droits des autres rôles.</li>
+	</ul>
+	</br>
+	<p>Le menu de gauche donne accès aux actions possibles.</p>
+	</br>
+	<p>Il est adapté au rôle de la personne connectée au site. 
+	   (p.ex. l'action 'Réserver un séjour pour un invité' n'est visible que pour le propriétaire.</p>
+	</br></br>  
+	<p>Par 'Personnes', on entend la liste des individus responsables d'un séjour, enregistrée dans la base de données.</p>
+	<p> Une réservation comporte les coordonnées de la personne responsable, enregistrée, et les dates de début, de fin ainsi que le nombre de personnes adultes ou jeunes prévues pour le séjour.</p>
+	 
+	
+	<div>
+		<a class="btn btn-info" href="{{ path('vf_crotoy_accueil'
+		) }}">Accueil</a> 
+	</div>
+
+	 
+	
+{% endblock %}
+
+
+
+
+

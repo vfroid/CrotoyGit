@@ -1,0 +1,39 @@
+{% extends "VFCrotoyBundle::layoutProprietaire.html.twig "%}
+
+
+{% block menu_user %}{% endblock %}
+
+{% block menu_proprietaire %}
+	{% if is_granted('ROLE_PROPRIETAIRE') %}
+	  <p>Propriétaire</p>
+	<ul>
+		<li><a href="{{ path('vf_proprietaire_accueil') }}">Explications</a></li>
+        <li><a href="{{ path('vf_proprietaire_recherche') }}">Réserver un séjour pour un invité</a></li>
+      </ul>
+    {% endif %}
+{% endblock %}
+
+
+{% block menu_reservation %}{% endblock %}
+{% block menu_personne %}{% endblock %}
+
+
+{% block principal %}
+
+	<div> 
+		<table class="table table-bordered table-striped table-condensed">
+					<caption>Gérance de la maison</caption>
+						<tr>
+						<th>Thèmes</th>
+						</tr>
+						
+						{% for l in lieux %}
+							<tr>
+							<td><a href="{{ liens[l]  }}">{{ l }}</a></td>
+							</tr>
+						{% endfor %}
+		</table>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{# src/VF/CoreBundle/Resources/views/User/menu.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+
+
+{% block menu %}
+{% block recherche %}{% endblock %}
+  <h4>Menu</h4>
+     {% if is_granted('ROLE_RESERVANT') %}
+	  
+	  
+	{% block menu_reservation %}  {% endblock %}
+	{% block menu_personne %}   {% endblock %}
+	{% block menu_proprietaire %}{% endblock %}
+	{% block menu_booking %}  {% endblock %}	
+	{% block menu_voyager %}  {% endblock %}
+	{% block menu_user %} 
+	{% endblock %}
+				   
+				   
+     {% endif %}
+	 
+	
+{% endblock %}

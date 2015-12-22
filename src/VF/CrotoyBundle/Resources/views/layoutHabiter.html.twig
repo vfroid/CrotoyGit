@@ -1,0 +1,34 @@
+{# src/VF/CrotoyBundle/Resources/views/layoutHabiter.html.twig #}
+
+{% extends "VFCoreBundle::layoutCore.html.twig" %}
+      
+
+ {% block crotoy %} {% endblock %} 
+
+
+ {% block menu_habiter %} 
+	{% if is_granted('ROLE_INVITE') %}
+	  <p>Guide pratique</p>
+	<ul>
+	    <li><a href="{{ path('vf_habiter_accueil') }}" >Accueil</a></li>
+	    <li><a href="https://www.service-client.veoliaeau.fr/home.html" target="_blank">Veolia (eau et gaz)</a></li>
+		<li><a href="https://particulier.edf.fr/fr/accueil.html#" target="_blank">EDF (électricité)</a></li>
+		<li><a href="{{ path('vf_habiter_internet') }}" target="_blank">Internet, TV, téléphone</a></li>
+		<li><a href="{{ path('vf_habiter_gerer') }}">Liens pratiques</a></li>
+      </ul>
+    {% endif %}
+ {% endblock %} 
+
+
+ 
+ 
+  {% block proprietaire %}  
+	                {% block locataires %}{% endblock %}
+					{% block toutes %}{% endblock %} 
+	                {% block ajouter %}{% endblock %} 
+					{% block voir %}{% endblock %}   
+					{% block editer %}{% endblock %} 
+					{% block delete %}{% endblock %} 
+
+  
+  {% endblock%}

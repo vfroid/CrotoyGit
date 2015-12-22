@@ -1,0 +1,107 @@
+vf_crotoy_accueil:
+    path:     /accueil
+    defaults: { _controller: VFCrotoyBundle:Crotoy:accueil }
+
+vf_crotoy_menu:
+    path:     /menu
+    defaults: { _controller: VFCrotoyBundle:Crotoy:menu}
+
+vf_crotoy_photos:
+    path:     /photos
+    defaults: { _controller: VFCrotoyBundle:Crotoy:photos }
+
+vf_personne_locataires:
+    path:     /personne/locataires
+    defaults: { _controller: VFCrotoyBundle:Personne:locataires}
+
+vf_personne_recherche:
+    path:     /personne/recherche
+    defaults: { _controller: VFCrotoyBundle:Personne:recherche}
+
+vf_personne_voir:
+    path:     /personne/voir/{id}
+    defaults: { _controller: VFCrotoyBundle:Personne:voir}
+
+vf_personne_add:
+    path:     /personne/add
+    defaults: { _controller: VFCrotoyBundle:Personne:add }
+
+vf_personne_edit:
+    path:     /personne/edit/{id}
+    defaults: { _controller: VFCrotoyBundle:Personne:edit }
+
+vf_personne_delete:
+    path:     /personne/delete/{id}
+    defaults: { _controller: VFCrotoyBundle:Personne:delete}
+
+vf_personne_menu:
+    path:     /personne/menu
+    defaults: { _controller: VFCrotoyBundle:Personne:menu}
+
+vf_reservation_edit:
+    path:     /reservation/edit/{id}
+    defaults: { _controller: VFCrotoyBundle:Reservation:edit }
+
+vf_reservation_add:
+    path:     /reservation/add
+    defaults: { _controller: VFCrotoyBundle:Reservation:add }
+
+vf_reservation_delete:
+    path:     /reservation/delete/{id}
+    defaults: { _controller: VFCrotoyBundle:Reservation:delete }
+
+vf_reservation_toutes:
+    path:     /reservation/toutes
+    defaults: { _controller: VFCrotoyBundle:Reservation:toutes }
+
+vf_reservation_recherche:
+    path:     /reservation/recherche
+    defaults: { _controller: VFCrotoyBundle:Reservation:recherche }
+
+vf_reservation_addinvite:
+    path:     /reservation/addinvite/{id}
+    defaults: { _controller: VFCrotoyBundle:Reservation:addinvite }
+
+vf_reservation_menu:
+    path:     /reservation/menu
+    defaults: { _controller: VFCrotoyBundle:Reservation:menu}
+
+vf_proprietaire_creesejourpourinvite:
+    path:     /proprietaire/creesejourpourinvite/{id}
+    defaults: { _controller: VFCrotoyBundle:Proprietaire:creesejourpourinvite }
+
+vf_proprietaire_recherche:
+    path:     /proprietaire/recherche
+    defaults: { _controller: VFCrotoyBundle:Proprietaire:recherche }
+
+vf_proprietaire_accueil:
+    path:     /proprietaire/accueil
+    defaults: { _controller: VFCrotoyBundle:Proprietaire:accueil }
+
+vf_proprietaire_menu:
+    path:     /proprietaire/menu
+    defaults: { _controller: VFCrotoyBundle:Proprietaire:menu }
+
+vf_voyager_menu:
+    path:     /voyager/menu
+    defaults: { _controller: VFCrotoyBundle:Voyager:menu }
+
+vf_voyager_transports:
+    path:     /voyager/transports
+    defaults: { _controller: VFCrotoyBundle:Voyager:transports }
+
+vf_voyager_visiter:
+    path:     /voyager/visiter
+    defaults: { _controller: VFCrotoyBundle:Voyager:visiter }
+
+vf_habiter_accueil:
+    path:     /habiter/accueil
+    defaults: { _controller: VFCrotoyBundle:Habiter:accueil }
+
+vf_habiter_gerer:
+    path:     /habiter/gerer
+    defaults: { _controller: VFCrotoyBundle:Habiter:gerer }
+
+vf_habiter_internet:
+    path:     /habiter/internet
+    defaults: { _controller: VFCrotoyBundle:Habiter:internet }
